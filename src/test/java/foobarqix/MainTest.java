@@ -27,12 +27,21 @@ public class MainTest {
 	}
 
 	@Property
-	void any_multiple_of_5_should_contain_Bar(@ForAll @Positive BigInteger number) {
+	boolean any_multiple_of_5_should_start_with_FizzBar_or_Bar(@ForAll @Positive BigInteger number) {
 		BigInteger multipleOf5 = number.multiply(new BigInteger("5"));
 
 		String result = Main.compute(multipleOf5.toString());
 
-		assertThat(result).contains("Bar");
+		return result.startsWith("FizzBar") || result.startsWith("Bar");
+	}
+	
+	@Property
+	boolean any_multiple_of_7_should_contain_Qix(@ForAll @Positive BigInteger number) {
+		BigInteger multipleOf7 = number.multiply(new BigInteger("7"));
+		
+		String result = Main.compute(multipleOf7.toString());
+		
+		return result.startsWith("FizzBarQix") || result.startsWith("BarQix") || result.startsWith("FizzQix") || result.startsWith("Qix");
 	}
 
 	@Property
