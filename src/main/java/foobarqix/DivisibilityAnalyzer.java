@@ -11,7 +11,7 @@ public class DivisibilityAnalyzer {
 
 		String result = "";
 		if(isDivisibleBy3) {
-			result += "Fizz";
+			result += "Foo";
 		}
 		if(isDivisibleBy5) {
 			result += "Bar";
