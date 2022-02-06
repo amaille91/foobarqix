@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigInteger;
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 
 import org.assertj.core.api.Assertions;
 
@@ -45,8 +46,12 @@ public class MainTest {
 
 	private static boolean isNumeric(String str) {
 		return str.startsWith("-") || str.startsWith("+")
-				? str.substring(1).chars().filter(MainTest::isCharOtherThanDigit).findAny().isEmpty()
-				: str.chars().filter(MainTest::isCharOtherThanDigit).findAny().isEmpty();
+				? allNumericIntchars(str.substring(1).chars())
+				: allNumericIntchars(str.chars());
+	}
+
+	private static boolean allNumericIntchars(IntStream charStream) {
+		return charStream.filter(MainTest::isCharOtherThanDigit).findAny().isEmpty();
 	}
 
 	private static boolean isCharOtherThanDigit(int charInt) {
