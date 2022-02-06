@@ -27,6 +27,15 @@ public class MainTest {
 	}
 
 	@Property
+	void any_multiple_of_5_should_contain_Bar(@ForAll @Positive BigInteger number) {
+		BigInteger multipleOf5 = number.multiply(new BigInteger("5"));
+
+		String result = Main.compute(multipleOf5.toString());
+
+		assertThat(result).contains("Bar");
+	}
+
+	@Property
 	void non_numeric_inputs_should_result_in_NumberFormatException(
 			@ForAll("non numeric strings") String nonNumericStr) {
 
