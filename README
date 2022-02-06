@@ -2,6 +2,13 @@
 
 `mvn package`
 
-# Run
+# Test
 
-`java -jar target/<jarName>`
+`mvn verify`
+
+Note: the main method is actually unuseful since there is no user interaction. No manual testing has been done for now
+
+Possibles improvements:
+- handling the 'track zeroes' functionality, probably as a mix between the scanner which would track them as 3-5-7 but returning the empty string if the result is all '*'
+and dealing with zeroes in the Main#compute method depending on the final for (foobarqix vs numbered form)
+- adding some interactivity (e.g. via a simple cli)
