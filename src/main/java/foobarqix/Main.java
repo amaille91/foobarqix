@@ -11,8 +11,11 @@ public class Main {
 	public static String compute(String nbStr) {
 		BigInteger number = new BigInteger((nbStr));
 		String divisibilityResult = DivisibilityAnalyzer.analyze(number);
+		String numbersScanningResult = InOrderDigitsAnalyer.analyze(nbStr);
 		
-		return divisibilityResult.isEmpty() ? nbStr : divisibilityResult;
+		String result = divisibilityResult + numbersScanningResult;
+		return result.isEmpty() ? nbStr : result;
+		
 	}
 
 }
