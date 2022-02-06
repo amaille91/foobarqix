@@ -1,5 +1,7 @@
 package foobarqix;
 
+import java.math.BigInteger;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -7,7 +9,8 @@ public class Main {
 	}
 
 	public static String compute(String nbStr) {
-		return null;
+		BigInteger number = new BigInteger((nbStr));
+		return number.mod(new BigInteger("3")).equals(BigInteger.ZERO) ? "Fizz" : nbStr;
 	}
 
 }
