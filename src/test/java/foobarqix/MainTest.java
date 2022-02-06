@@ -14,7 +14,7 @@ public class MainTest {
 	void any_multiple_of_3_should_start_with_Fizz(@ForAll("positive integer") int number) {
 		int multipleOf3 = 3 * number;
 
-		String result = Main.compute(multipleOf3);
+		String result = Main.compute(Integer.toString(multipleOf3));
 
 		assertThat(result).startsWith("Fizz");
 	}
