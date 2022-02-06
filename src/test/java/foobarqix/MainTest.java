@@ -41,7 +41,7 @@ public class MainTest {
 		
 		String result = Main.compute(multipleOf7.toString());
 		
-		return result.startsWith("FizzBarQix") || result.startsWith("BarQix") || result.startsWith("Qix");
+		return result.startsWith("FizzBarQix") || result.startsWith("BarQix") || result.startsWith("FizzQix") || result.startsWith("Qix");
 	}
 
 	@Property
