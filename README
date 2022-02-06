@@ -1,0 +1,7 @@
+# Compilation
+
+`mvn package`
+
+# Run
+
+`java -jar target/<jarName>`
