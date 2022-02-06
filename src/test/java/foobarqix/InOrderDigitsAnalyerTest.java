@@ -9,7 +9,7 @@ public class InOrderDigitsAnalyerTest {
 	
 	@ParameterizedTest
 	@CsvSource(
-			{ "1,"
+			{ "1, "
 			, "2,"
 			, "3,Foo"
 			, "4,"
@@ -32,7 +32,11 @@ public class InOrderDigitsAnalyerTest {
 			, "75,QixBar"
 			, "735,QixFooBar"
 	})
-	void digits_should_be_analyzed_in_order_by_examples(int number, String expectedAnalysis) {
+	void digits_should_be_analyzed_in_order_by_examples(int number, String expectedAnalysis_) {
+		
+		// palliative to JUnit CsvSource generation of strings: see https://github.com/junit-team/junit5/issues/1014
+		String expectedAnalysis = expectedAnalysis_ == null ? "" : expectedAnalysis_;
+		
 		String result = InOrderDigitsAnalyer.analyze(Integer.toString(number));
 		
 		assertThat(result).isEqualTo(expectedAnalysis);
